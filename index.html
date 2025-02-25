@@ -2,45 +2,39 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chúc Mừng Sinh Nhật</title>
     <style>
         body {
             text-align: center;
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
             height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
         }
 
-        h1 {
+        h1, h2 {
             color: white;
-            font-size: 35px;
-            /* margin-top: 5%; */
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
             animation: glow 1.5s infinite alternate;
-        }
-        h2 {
-            color: white;
-            font-size: 35px;
-            /* margin-top: 5%; */
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-            animation: glow 1.5s infinite alternate;
+            font-size: 5vw;
+            margin: 10px 0;
         }
 
         @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
-            }
-            to {
-                text-shadow: 0 0 20px #ff6600, 0 0 30px #ff6600, 0 0 40px #ff6600;
-            }
+            from { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
+            to { text-shadow: 0 0 20px #ff6600, 0 0 30px #ff6600; }
         }
 
         .balloon {
             position: absolute;
-            width: 50px;
-            height: 70px;
+            width: 40px;
+            height: 60px;
             background: radial-gradient(circle, #ff4d4d, #ff0000);
             border-radius: 50%;
             bottom: -100px;
@@ -52,66 +46,75 @@
             100% { transform: translateY(-10vh); opacity: 0; }
         }
 
-        /* Căn ảnh trái và phải */
         .images {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
-            width: 90%;
-            margin: 20px auto;
+            gap: 10px;
+            max-width: 100%;
         }
 
         .images img {
-            width: 250px;
+            width: 90%;
+            max-width: 250px;
             height: auto;
             border-radius: 15px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
         }
 
+        .message {
+            max-width: 90%;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
         #music-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            margin-top: 20px;
             padding: 10px 15px;
             background: #ffcc00;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 24px; }
+            h2 { font-size: 20px; }
+            #music-btn { font-size: 14px; padding: 8px 12px; }
         }
     </style>
 </head>
 <body>
-
     <h1>🎉 Chúc Mừng Sinh Nhật! 🎂</h1>
     <h2>25/2</h2>
     <h1>🎉 Tuấn Anh & Như Ngân 🎂</h1>
 
-    <!-- Ảnh nằm hai bên -->
     <div class="images">
         <img src="./img/z6350573317758_9ed6263231c240392bf0003d1239ceec.jpg" alt="ảnh">
         <div class="message">
-            🎂 **Chúc mừng sinh nhật!**  
-            Hôm nay là một ngày đặc biệt, là ngày bạn được sinh ra để mang lại niềm vui và hạnh phúc cho mọi người xung quanh.  
-            <br><br>
-            💖 **Chúc bạn:**  
-            - Một năm mới tràn đầy niềm vui, sức khỏe dồi dào.  
-            - Mọi điều tốt đẹp, may mắn và thành công sẽ đến với bạn.  
-            - Luôn luôn vui vẻ, lạc quan, yêu đời!  
-            <br><br>
-            🎁 **Hãy tận hưởng ngày đặc biệt này**, vì nó là của bạn!  
-            Cảm ơn bạn vì đã là một phần quan trọng trong cuộc sống của chúng tôi! 🥳  
+            🎂 **Chúc mừng sinh nhật!**<br><br>
+            💖 **Chúc bạn:**<br>
+            - Một năm mới tràn đầy niềm vui, sức khỏe dồi dào.<br>
+            - Mọi điều tốt đẹp, may mắn và thành công sẽ đến với bạn.<br>
+            - Luôn luôn vui vẻ, lạc quan, yêu đời!<br><br>
+            🎁 **Hãy tận hưởng ngày đặc biệt này**, vì nó là của bạn! 🥳  
         </div>
-
         <img src="./img/z6350573324780_4185e506804b45f6314defa6bcea83f3.jpg" alt="Ảnh 1">
     </div>
 
     <button id="music-btn">🎵 Bật Nhạc</button>
-    <audio id="birthday-song" src="https://youtu.be/5DcKlZnmVNs?si=ICw5w8vYQjC04TZg"></audio>
+    <audio id="birthday-song" src="/Happy Birthday Song - Happy Birthday.mp3" autoplay muted></audio>
 
     <script>
         function createBalloons() {
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < (window.innerWidth < 600 ? 10 : 20); i++) {
                 let balloon = document.createElement("div");
                 balloon.classList.add("balloon");
                 balloon.style.left = Math.random() * 100 + "vw";
@@ -121,6 +124,12 @@
             }
         }
         setInterval(createBalloons, 1000);
+
+        document.addEventListener("click", function() {
+            let music = document.getElementById("birthday-song");
+            music.muted = false;
+            music.play().catch(error => console.log("Không thể phát nhạc:", error));
+        }, { once: true });
 
         document.getElementById("music-btn").addEventListener("click", function() {
             let music = document.getElementById("birthday-song");
@@ -133,6 +142,5 @@
             }
         });
     </script>
-
 </body>
 </html>
